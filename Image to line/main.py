@@ -142,9 +142,6 @@ def doIt(path, color = (0,0,0),thiCCness = 1,gif = True, randomize = False, fps 
             amountOfRows = (height) // rez
             
             print(f"Amount of rows: {amountOfRows}")
-            
-            
-            
         
             colorUpdate = amountOfRows / amountOfContours + offSet(amountOfRows,amountOfContours, rez)
             colorCounter = .9
@@ -215,13 +212,4 @@ def doIt(path, color = (0,0,0),thiCCness = 1,gif = True, randomize = False, fps 
 
 
 
-#doIt('Images/grad.jpeg',gif = False, drawColor = True,rez = 5, fps = 5, show = False,save= "grad",threshold1 = int(0.3 * 255), threshold2 = int(0.7 * 255),thiCCness=1)
-#doIt('Images/bird.jpeg',gif = False, drawColor = True,rez = 5, fps = 5, show = False,save= "bird",threshold1 = int(0.6 * 255), threshold2 = int(0.3 * 255),thiCCness=2)
-doIt('Images/lamp.jpeg',gif = True, drawColor = True,rez = 1, fps = 5, show = False,save= "final",threshold1 = int(0.5 * 255), threshold2 = int(0.5 * 255),thiCCness=1)
-
-
-#doIt('Images/car.jpeg',gif= False,drawColor = True,show = True,save= "car",threshold1 = int(0.5 * 255), threshold2 = int(0.7 * 255),thiCCness=3)
-
-
-#doIt('Images/hotel.jpeg',gif= True,drawColor = True,show = True,fps = 7,save= "hotel",threshold1 = int(0.3 * 255), threshold2 = int(0.5 * 255),thiCCness=2)
-#70%
+#doIt('Images/pic.jpeg',gif = False, drawColor = True,rez = 5, fps = 5, show = False,save= "pic",threshold1 = int(0.3 * 255), threshold2 = int(0.7 * 255),thiCCness=1)
