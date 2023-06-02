@@ -24,23 +24,24 @@ def upload_file():
         gif = 'gif' in request.form
 
         if not (1 <= thiCCness <= 5):
-            return 'Invalid thiCCness value'
+            return 2
 
         if not (1 <= threshold1 <= 255):
-            return 'Invalid line threshold one value'
+            return 100
 
         if not (1 <= threshold2 <= 255):
-            return 'Invalid line threshold two value'
+            return 100
         rez = 25
         if drawColor:
             rez = int(request.form.get('rez'))
             if not (1 <= rez <= 100):
-                return 'Invalid distance of average color value'
+                return 5
+        #gif mode is not on web
         fps = 5
         if gif:
             fps = int(request.form.get('fps'))
             if not (5 <= fps <= 100):
-                return 'Invalid updates per frame value'
+                return 5
         main.doIt("uploads/img.jpeg", thiCCness=thiCCness, gif=gif, rez=rez, drawColor=drawColor, fps=fps,save="uploads/img.jpeg", threshold1=threshold1, threshold2=threshold2)
 
         return render_template('result.html')
