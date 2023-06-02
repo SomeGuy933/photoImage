@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #uploadedImage {
+      max-width: 50%;
+      max-height: 50%;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function setDimensions() {
+      fetch('/get_image_dimensions')
+        .then(response => response.json())
+        .then(data => {
+          const uploadedImage = document.getElementById('uploadedImage');
+          uploadedImage.style.width = data.width / 2 + 'px';
+          uploadedImage.style.height = data.height / 2 + 'px';
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+    setDimensions();
+  </script>
+</head>
+<body>
+  <h1>File Uploaded Successfully</h1>
+  <img src="{{ url_for('get_uploaded_image') }}" alt="Uploaded Image" id="uploadedImage">
+  <br><br>
+  <a href="{{ url_for('get_uploaded_image') }}" download>
+    <button>Download Image</button>
+  </a>
+</body>
+</html>
